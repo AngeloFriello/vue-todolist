@@ -18,13 +18,19 @@ createApp({
                 {
                     text: 'Fare il bucato',
                     done: false
+                },
+                {
+                    text: 'Fare il bucato',
+                    done: true
                 }
             ],
         }
     },
 
     methods:{
-
+        removeTodo(todoIndex){
+            this.todos.splice(todoIndex, 1)
+        },
     },
 
     mounted(){

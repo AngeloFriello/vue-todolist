@@ -28,3 +28,7 @@ li{
 .active{
     text-decoration: line-through;
 }
+
+.flex{
+    display: flex;
+}

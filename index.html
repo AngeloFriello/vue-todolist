@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://kit.fontawesome.com/bce4c6f505.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">
@@ -14,8 +15,9 @@
             <input type="text"  class="input-text">
             <button class="btn-add">aggiungi</button>
             <ul>
-                <li class="" v-for="(todo, index) in todos">
+                <li class="flex" v-for="(todo, index) in todos">
                     <p :class="{ active: todos[index].done === true}">{{todos[index].text}}</p>
+                    <i class="fa-solid fa-xmark" @click="removeTodo(index)"></i>
                 </li>
 
             </ul>
