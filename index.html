@@ -15,7 +15,7 @@
             <input type="text" v-model="newTextTodo" class="input-text" @keyup.enter="addTodo()">
             <button class="btn-add" @click="addTodo()">aggiungi</button>
             <ul>
-                <li class="flex" v-for="(todo, index) in todos">
+                <li class="flex" v-for="(todo, index) in todos" @click="changeBoolean(index)">
                     <p :class="{ active: todos[index].done === true}">{{todos[index].text}}</p>
                     <i class="fa-solid fa-xmark" @click="removeTodo(index)"></i>
                 </li>

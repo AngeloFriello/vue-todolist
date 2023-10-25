@@ -6,7 +6,6 @@ createApp({
             newTextTodo: '',
             isActive: true,
             hasError: false,
-            currentIndex: 0,
             todos: [
                 {
                     text: 'Fare i compiti',
@@ -37,6 +36,13 @@ createApp({
             newTodo = this.todos.unshift(newTodo)
             this.newTextTodo = ''
         },
+        changeBoolean(todoIndex){
+            if(this.todos[todoIndex].done === true){
+                this.todos[todoIndex].done = false
+            }else if(this.todos[todoIndex].done === false){
+                this.todos[todoIndex].done = true
+            }
+        }
     },
 
     mounted(){
