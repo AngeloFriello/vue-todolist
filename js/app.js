@@ -3,6 +3,8 @@ const { createApp } = Vue
 createApp({
     data(){
         return{
+            isActive: true,
+            hasError: false,
             currentIndex: 0,
             todos: [
                 {
