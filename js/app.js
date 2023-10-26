@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data(){
         return{
+            errore: '',
             newTextTodo: '',
             isActive: true,
             hasError: false,
@@ -29,23 +30,33 @@ createApp({
 
     methods:{
         removeTodo(todoIndex){
-            this.todos.splice(todoIndex, 1)
+            this.todos.splice(todoIndex,1)
         },
         addTodo(){
-            let newTodo = {text: this.newTextTodo, done: false}
-            newTodo = this.todos.unshift(newTodo)
-            this.newTextTodo = ''
+            if(this.newTextTodo.length >= 5){
+                let newTodo = {text: this.newTextTodo, done: false}
+                newTodo = this.todos.unshift(newTodo)
+                this.errore = ''
+            }else{
+                this.errore = 'devi inserire almeno 5 caratteri'
+            }
+
         },
         changeBoolean(todoIndex){
             if(this.todos[todoIndex].done === true){
                 this.todos[todoIndex].done = false
-            }else if(this.todos[todoIndex].done === false){
+            } else {
                 this.todos[todoIndex].done = true
             }
-        }
+
+            // this.todos[todoIndex].done === true ? this.todos[todoIndex].done = false :this.todos[todoIndex].done = true;
+
+            // this.todos[todoIndex].done = !this.todos[todoIndex].done;
+        },
     },
 
     mounted(){
         console.log(this.todos)
+        let lengthTodo = this.newTextTodo.length
     },
 }).mount('#app');
